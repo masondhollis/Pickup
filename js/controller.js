@@ -96,15 +96,15 @@ function login() {
 ***********************************************************/
 
 
-//Populate Games
+//Populate all games from database
 var Game = Parse.Object.extend("Game");
 var newGame = new Game();
-var query = new Parse.Query(Game);
-query.find({
+var allGames = new Parse.Query(Game);
+allGames.find({
     success: function(gamesList) {
         for (var i = 0; i < gamesList.length; i++) {
             game = gamesList[i];
-            $('#current_games').append('<p>'+game.get('sport')+' at '+game.get('location')+'</p>')
+            $('#current_games').append('<p>'+game.get('sport')+' at '+game.get('location')+'</p>');
         }
     },
     error: function(error) {
@@ -112,13 +112,31 @@ query.find({
     }
 });
 
+//Populate "your games"
+var yourGames = new Parse.Query(Game);
+yourGames.equalTo("owner", Parse.User.current());
+yourGames.find({
+    success: function(gamesList) {
+        for (var i = 0; i < gamesList.length; i++) {
+            game = gamesList[i];
+            $('#your_games').append('<p>'+game.get('sport')+' at '+game.get('location')+'</p>');
+        }
+    },
+    error: function(error) {
+        
+    }
+});
+
+//Show form to create new game
 $('#create_game').click(function() {
     $('#overlay').show();
 });
 
+//Save new game to database
 $('#creategameform').submit(function() {
     newGame.set("sport", $('#sport').val());
     newGame.set("location", $('#location').val());
+    newGame.set("owner", Parse.User.current());
     newGame.save(null, {
         success: function(newGame) {
             
