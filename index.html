@@ -2,14 +2,17 @@
     <head>
         <title>Pickup</title>
         <link rel="stylesheet" href="./css/style.css">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://parse.com/downloads/javascript/parse-1.5.0.js"></script>
     </head>
     <body>
         <div id="header">
-            <input id="username" type="text" placeholder="username">
-            <input id="password" type="password" placeholder="password">
-            <button id="login">Log-In</button>
-            <button id="register">Register</button>
+            <form id="loginform">
+                <input id="username" type="text" placeholder="username">
+                <input id="password" type="password" placeholder="password">
+                <button id="login" type="submit">Log-In</button>
+                <button id="register" type="button">Register</button>
+            </form>
         </div>
         <div id="title">
             <h1>PICKUP</h1>
@@ -26,21 +29,20 @@
         
         
         <!-- Register Modal. Hidden on page load -->
-        <!-- TO-DO: MAKE THIS LOOK BETER -->
+        <!-- Naa - Make this look better please -->
         <div id="overlay">
             <div id="register_modal">
                 <h3>REGISTER FOR PICKUP</h1>
-                <form>
-                    <input id="username" type="text" placeholder="username">
-                    <input id="email" type="email" placeholder="email">
-                    <input id="password" type="password" placeholder="password">
-                    <input id="password" type="password" placeholder="confirm password">
+                <form id="registerform">
+                    <input id="Reg_username" type="text" placeholder="username">
+                    <input id="Reg_email" type="email" placeholder="email">
+                    <input id="Reg_password" type="password" placeholder="password">
                     <input id="submit" type="submit">
                 </form>
             </div>
         </div>
         
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        
         <script src="./js/controller.js"></script>
     </body>
 </html>
