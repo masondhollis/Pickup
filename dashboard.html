@@ -6,9 +6,24 @@
         <script src="https://parse.com/downloads/javascript/parse-1.5.0.js"></script>
     </head>
     <body>
-        <h1>DASHBOARD PLACEHOLDER</h1>
+        <div id="current_games">
+            <h2>Current Games</h2>
+        </div>
+        <button id="create_game">Create Game</button>
         
         
+        
+        <!-- Hidden on load -->
+        <div id="overlay">
+            <div id="create_game" class="modal">
+                <h3>Create Game</h1>
+                <form id="creategameform">
+                    <input id="sport" type="text" placeholder="sport">
+                    <input id="location" type="text" placeholder="location">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
         <script src="./js/controller.js"></script>
     </body>
 </html>

@@ -25,7 +25,7 @@ $('#overlay').click(function(){
     $registerbox.hide();
 });
 //Need this to cancel ^that^ hide function if the click is inside the modal
-$('#register_modal').click(function(event){
+$('.modal').click(function(event){
    event.stopPropagation(); 
 });
 
@@ -86,6 +86,47 @@ function login() {
             alert(error.message);
         }
     })
-}
+};
+
+
+
+
+/***********************************************************
+*                         DASHBOARD                        *
+***********************************************************/
+
+
+//Populate Games
+var Game = Parse.Object.extend("Game");
+var newGame = new Game();
+var query = new Parse.Query(Game);
+query.find({
+    success: function(gamesList) {
+        for (var i = 0; i < gamesList.length; i++) {
+            game = gamesList[i];
+            $('#current_games').append('<p>'+game.get('sport')+' at '+game.get('location')+'</p>')
+        }
+    },
+    error: function(error) {
+        
+    }
+});
+
+$('#create_game').click(function() {
+    $('#overlay').show();
+});
+
+$('#creategameform').submit(function() {
+    newGame.set("sport", $('#sport').val());
+    newGame.set("location", $('#location').val());
+    newGame.save(null, {
+        success: function(newGame) {
+            
+        },
+        error: function(newGame, error) {
+            
+        }
+    });
+});
 
 

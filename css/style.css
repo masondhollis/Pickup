@@ -108,7 +108,7 @@ h1 {
     display: none;
 }
 
-#register_modal {
+.modal {
     background-color: white;
     width: 50%;
     height: 400px;
