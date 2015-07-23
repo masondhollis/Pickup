@@ -1,5 +1,28 @@
 Parse.initialize("IG0JX8VC6EzA4iBHYO7Lwx50yFUzyRHlX0xBRGyO", "qOP039WAxBznV5RhnL6AWpkSbmhXu5CUAf4mHEFU");
 
+/***********************************************************
+*                    General Services                      *
+***********************************************************/
+
+
+//Parses queryString. Like a GET request
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+
+//Needed to call Game object from Parse.
+var Game = Parse.Object.extend("Game");
+
+
+
+
 
 
 
@@ -97,14 +120,16 @@ function login() {
 
 
 //Populate all games from database
-var Game = Parse.Object.extend("Game");
 var newGame = new Game();
 var allGames = new Parse.Query(Game);
 allGames.find({
     success: function(gamesList) {
-        for (var i = 0; i < gamesList.length; i++) {
+        for (var i = 0; i < 3; i++) {
             game = gamesList[i];
-            $('#current_games').append('<p>'+game.get('sport')+' at '+game.get('location')+'</p>');
+            var $gameElm = $('#gametemplate').clone(true);
+            $gameElm.html(game.get('sport')+' at '+game.get('location'));
+            $gameElm.attr("id", game.id);
+            $('#current_games').append($gameElm);
         }
     },
     error: function(error) {
@@ -119,7 +144,10 @@ yourGames.find({
     success: function(gamesList) {
         for (var i = 0; i < gamesList.length; i++) {
             game = gamesList[i];
-            $('#your_games').append('<p>'+game.get('sport')+' at '+game.get('location')+'</p>');
+            var $gameElm = $('#yourgametemplate').clone(true);
+            $gameElm.html(game.get('sport')+' at '+game.get('location'));
+            $gameElm.attr("id", game.id);
+            $('#your_games').append($gameElm);
         }
     },
     error: function(error) {
@@ -146,5 +174,41 @@ $('#creategameform').submit(function() {
         }
     });
 });
+
+//Navigate to game page when clicked
+$(document).on('click', 'p', function() {
+    window.location.href = "./game.html?gameID="+this.id;
+});
+
+
+
+
+
+/***********************************************************
+*                         GAME                             *
+***********************************************************/
+
+
+//Get game object
+var gameID = getQueryVariable("gameID");
+
+//I'm making a lot of redundant calls to this database but Ill leave it for now. Lets fix it later.
+//This one gets the current game
+var currentGame = new Parse.Query(Game);
+currentGame.equalTo("objectId", gameID);
+currentGame.find({
+    success: function(games) {
+        
+        //Hopefully theres only one object in this array but just to avoid weird things later...
+        game = games[0];
+        $('#sport').html(game.get('sport'));
+        $('#location').html(game.get('location'));
+        
+    },
+    error: function(games, error) {
+        
+    }
+});
+
 
 
