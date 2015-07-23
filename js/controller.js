@@ -1,7 +1,10 @@
-$(document).ready(function(){
-   $('#register').click(function(){
-        $('#register_modal').bPopup({
-            positionStyle: 'fixed'
-        });
-    });
-});
+
+var $loginbox = $('#overlay');
+
+$('#register').click(function(){
+     $loginbox.show();
+ });
+
+$('#overlay').click(function(){
+    $loginbox.hide();
+})
