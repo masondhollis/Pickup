@@ -13,6 +13,11 @@ var $registerbox = $('#overlay');
 //Show registerbox when "register" button clicked
 $('#register').click(function(){
      $registerbox.show();
+     
+     //Transfer info from login form to register form.
+     //This feels hack-y, theres probably a better way to do it...
+     $("#Reg_username").val($("#username").val());
+     $("#Reg_password").val($("#password").val());
  });
 
 //Hide registerbox when user clicks outside box
@@ -28,6 +33,7 @@ $('#register_modal').click(function(event){
 $('#loginform').submit(function(event){
     
     event.preventDefault();
+
     login();
     
 });
@@ -36,17 +42,23 @@ $('#loginform').submit(function(event){
 $('#registerform').submit(function(event){
     event.preventDefault();
     
+    //Transfer Reg_user to user
+    $("#username").val($("#Reg_username").val());
+    $("#password").val($("#Reg_password").val());
+    
+    //Set parse user object with user-provided info
     var user = new Parse.User();
     user.set("username", $('#Reg_username').val());
     user.set("email", $('#Reg_email').val());
     user.set("password", $('#Reg_password').val());
     
+    //Call parse sign up function
     user.signUp(null, {
         success: function(user) {
-            //Need to transfer Reg_username to username
             login();
         },
         error: function(user,error) {
+            //Naa - Put the error.message string on the screen somewhere. Not in an alert box.
             alert(error.message + "");
         }
     });
