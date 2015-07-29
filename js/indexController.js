@@ -39,6 +39,7 @@ $('#registerform').submit(function(event){
     user.set("username", $('#Reg_username').val());
     user.set("email", $('#Reg_email').val());
     user.set("password", $('#Reg_password').val());
+    user.set("ranking", 1000);
     
     //Call parse sign up function
     user.signUp(null, {

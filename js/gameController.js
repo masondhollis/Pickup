@@ -60,4 +60,24 @@ $('#joingame').click(function() {
 
 $('#reportscore').click(function() {
     $('#overlay').show();
+});
+
+$('#scoreform').submit(function(event) {
+    event.preventDefault();
+    
+    var setRankingParams = {
+        winnerName: $('#winner').val(),
+        loserName: $('#loser').val()
+    };
+    
+    Parse.Cloud.run('updateRankings', setRankingParams, {
+        success: function(response) {
+            console.log("SUCCESS: " + response);
+        },
+        error: function(response) {
+            console.log("ERROR: " + response);
+        }
+    })
+    
+    
 })
