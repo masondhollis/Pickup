@@ -9,13 +9,38 @@
         <div id="game_info">
             <p id="sport"></p>
             <p id="location"></p>
-            <button>JOIN GAME</button>
+            <div id="players">
+                <h3>Current Players</h3>
+                <p id="playerstemplate"></p>
+                <!-- Naa, make this say something if there are no current players. Check "populate other players" in the gameController -->
+            </div>
+            <button id="joingame">JOIN GAME</button>
+            <!-- hidden on load unless user is owner -->
+            <button id="reportscore">REPORT SCORE</button>
+        </div>
+        
+        
+        
+        <!--Report score box-->
+        <div id="overlay">
+            <div id="score_modal" class="modal">
+                <h3>REPORT SCORE</h3>
+                <p>Please report winners' usernames seperated by commas</p>
+                <form id="registerform">
+                    <label>Winners:</label><input id="winners" type="text"> <br>
+                    <label>Losers:</label><input id="losers" type="text">
+                    <input id="submit" type="submit">
+                </form>
+            </div>
         </div>
         
         
         
         
         
+        
         <script src="./js/controller.js"></script>
+        <script src="./js/gameController.js"></script>
+
     </body>
 </html>
