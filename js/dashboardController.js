@@ -39,6 +39,12 @@ yourGames.find({
     }
 });
 
+//Show User Rank
+Parse.User.current().fetch().then(function(user) {
+    $('#rank').html(user.get('ranking'));
+})
+
+
 //Show form to create new game
 $('#create_game').click(function() {
     $('#overlay').show();

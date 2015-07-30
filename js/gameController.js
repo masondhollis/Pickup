@@ -70,6 +70,8 @@ $('#scoreform').submit(function(event) {
         loserName: $('#loser').val()
     };
     
+    //Calls a function in the Parse Cloud (mitigates javascript injection attacks)
+    //Text me if you need to change this. You need to have Parse command line tools installed
     Parse.Cloud.run('updateRankings', setRankingParams, {
         success: function(response) {
             console.log("SUCCESS: " + response);
@@ -77,7 +79,9 @@ $('#scoreform').submit(function(event) {
         error: function(response) {
             console.log("ERROR: " + response);
         }
-    })
+    });
+    
+    
     
     
 })
