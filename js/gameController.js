@@ -81,6 +81,14 @@ $('#scoreform').submit(function(event) {
         }
     });
     
+    currentGame.get(gameID, {
+        success: function(tempGame) {
+            tempGame.destroy({});
+            window.location.href="./dashboard.html";
+
+        }
+    });
+
     
     
     

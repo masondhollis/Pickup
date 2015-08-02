@@ -41,7 +41,7 @@ yourGames.find({
 
 //Show User Rank
 Parse.User.current().fetch().then(function(user) {
-    $('#rank').html(user.get('ranking'));
+    $('#rank').html(Math.round(user.get('ranking')));
 })
 
 
