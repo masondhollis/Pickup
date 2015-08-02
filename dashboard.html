@@ -5,12 +5,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://parse.com/downloads/javascript/parse-1.5.0.js"></script>
     </head>
-    <body>
-        <div id="current_games">
-            <h2>Current Games</h2>
+    <body id="dashboard">
+        <img src="./img/pickup-logo.png" id="logo">
+        
+        
+        <div id="current_games" class="game_container">
+            <h2>Games Near You</h2>
             <p id="gametemplate"></p>
         </div>
-        <div id="your_games">
+        <div id="your_games" class="game_container">
             <h2>Your Games</h2>
             <p id="yourgametemplate"></p>
         </div>

@@ -1,6 +1,7 @@
 @font-face {font-family: pickup; src: url('../font/Fabada-regular.otf'); }
 @font-face {font-family: quicksand; src: url('../font/Quicksand_Book.otf');}
 @font-face {font-family: gotham; src: url('../font/Gotham/Gotham-Medium.otf');}
+@font-face {font-family: gotham-light; src: url('../font/Gotham/Gotham-Light.otf')}
 
 body {
     margin: 0;
@@ -125,4 +126,34 @@ h1 {
     position: absolute;
     left: 25%;
     top: 100px;
+}
+
+
+
+
+
+/* DASHBOARD */
+
+#dashboard {
+    background-image: url('../img/dash-bg.jpg');
+    background-size: cover;
+    background-position: right bottom;
+}
+
+#dashboard h2 {
+    font-family: gotham-light;
+}
+
+#dashboard #logo {
+    margin-top: 25px;
+    width: 175px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game_container {
+    background-color: white;
+    margin-left: 10%;
+    margin-right: 10%;
 }
