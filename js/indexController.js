@@ -15,7 +15,9 @@ $('#register').click(function(){
      $("#Reg_password").val($("#password").val());
  });
 
-
+$('#login').click(function() {
+     $('#loginform').show();
+});
 
 //Verify login and redirect to dashboard
 $('#loginform').submit(function(event){

@@ -1,5 +1,6 @@
 @font-face {font-family: pickup; src: url('../font/Fabada-regular.otf'); }
 @font-face {font-family: quicksand; src: url('../font/Quicksand_Book.otf');}
+@font-face {font-family: gotham; src: url('../font/Gotham/Gotham-Medium.otf');}
 
 body {
     margin: 0;
@@ -16,7 +17,6 @@ h1 {
 }
 
 #header {
-    background-color: #444444;
     height: 50px;
     position: absolute;
     top: 0;
@@ -33,35 +33,38 @@ h1 {
     font-family: quicksand;
     font-size: 15px;
     line-height: 20px;
-    right: 260px;
     text-align: center;
+    top: 33px;
+}
+
+#header #loginform {
+    display: none;
 }
 
 #header #username {
-    top: 5px;
+    right: 350px;
 }
 
 #header #password {
-    bottom: 5px;
+    right: 240px;
 }
 
 #header button {
+    background: none;
+    border: none;
     margin-top: 5px;
     height: 40px;
     position: absolute;
     width: 100px;
-    background-color: red;
-    border-radius: 5px;
-    border-style: none;
-    font-family: quicksand;
-    font-size: 20px;
-    line-height: 20px;
+    font-family: gotham;
+    font-size: 15px;
+    color: white;
 }
 #header #register {
-    right: 20px;
+    right: 140px;
 }
 #header #login {
-    right: 140px;
+    right: 80px;
 }
 
 #title {
@@ -73,6 +76,13 @@ h1 {
     margin: 0;
     padding-top: 75px;
     background-attachment: fixed;
+}
+
+#title #logo {
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .subsection {
