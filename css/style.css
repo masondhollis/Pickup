@@ -128,6 +128,23 @@ h1 {
     top: 100px;
 }
 
+#registerform h3 {
+    text-align:center;
+    font-family: geneva, georgia, serif, helvetica;
+    font-size:25pt;
+    color: white;
+}
+                
+#registerform p {
+    text-align: center;
+    font-family: geneva, georgia, helvetica;
+    font-weight:300;
+    color: white;
+}
+
+#register_modal {
+    background-image: url("https://lh3.ggpht.com/zLa8_9fnCaAZl8bppGvEOEoCQr4cZKbPwNO6CwGk4Lg6KfCf40b1bwp4raKlEldFiEk=h900");
+    background-size: cover;
 
 
 
@@ -156,4 +173,5 @@ h1 {
     background-color: white;
     margin-left: 10%;
     margin-right: 10%;
+
 }
