@@ -112,7 +112,17 @@ $(document).on('click', '#leavegame', function() {
 })
 
 $('#reportscore').click(function() {
-    $('#overlay').show();
+    if (game.get('player_id').length == 2) {
+        $('#scorebox').show();
+        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+    }
+    else {
+        game.destroy({
+            success: function() {
+                window.location.href = "./dashboard.html";
+            }
+        })
+    }
 });
 
 $('#scoreform').submit(function(event) {
@@ -127,22 +137,16 @@ $('#scoreform').submit(function(event) {
     //Text me if you need to change this. You need to have Parse command line tools installed
     Parse.Cloud.run('updateRankings', setRankingParams, {
         success: function(response) {
-            console.log("SUCCESS: " + response);
-        },
-        error: function(response) {
-            console.log("ERROR: " + response);
+            currentGame.get(gameID, {
+                success: function(tempGame) {
+                    tempGame.destroy({});
+                    window.location.href="./dashboard.html";
+                }
+            });
         }
-    });
-    
-    currentGame.get(gameID, {
-        success: function(tempGame) {
-            tempGame.destroy({});
-            window.location.href="./dashboard.html";
+    });  
+})
 
-        }
-    });
-
-    
-    
-    
+$('#logout').click(function() {
+    window.location.href = "./dashboard.html";
 })

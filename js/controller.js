@@ -32,9 +32,6 @@ $('.modal').click(function(event){
 });
 
 
-//Log Out
-$('#logout').click(function() {
-    parent.history.back();
-})
+
 
 $('#showUsername').html(Parse.User.current().get('username'));

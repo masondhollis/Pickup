@@ -396,6 +396,27 @@ tr {
     right: 10%;
 }
 
+#scoreform input {
+    margin-right: 50px;
+}
+
+#scoreform #submit {
+    background-color: #12b8fe;
+    border: none;
+    width: 10%;
+    height: 30px;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+}
+
+#scorebox {
+    height: 125px;
+    display: none;
+}
+
 
 
 
