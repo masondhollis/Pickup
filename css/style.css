@@ -91,7 +91,7 @@ tr {
     margin-top: 5px;
     height: 40px;
     position: absolute;
-    width: 100px;
+    width: 65px;
     font-family: gotham;
     font-size: 15px;
     color: white;
@@ -227,8 +227,14 @@ tr {
 
 #logout {
     position: absolute;
-    top: 12px;
+    top: 17px;
     left: 10%;
+}
+
+#showUsername {
+    position: absolute;
+    top: 5px;
+    margin-left: 15%;
 }
 
 #plus {
@@ -246,10 +252,11 @@ tr {
     padding-left: 2%;
     padding-right: 2%;
     padding-bottom: 5px;
-    box-shadow: 10px 10px 5px #888888;
+    border: 3px #ccc;
+    border-style: hidden solid solid hidden;
 }
 
-#new_game {
+#new_game, #creategame {
     background-color: #12b8fe;
     border: none;
     width: 15%;
@@ -261,7 +268,47 @@ tr {
     margin-left: .5%;
 }
 
+.nogames {
+    display: none;
+}
 
+#create_game {
+    margin-bottom: 25px;
+    line-height: 30px;
+    height: 300px;
+    display: none;
+
+}
+
+#create_game input {
+    float: right;
+}
+
+#create_game #left {
+    width: 50%;
+    margin-right: 0;
+    float: left;
+}
+
+#dashboard #details {
+    position: relative;
+    right: 0;
+    top: 0;
+    float: right;
+    width: 40%;
+    height: 75px;
+    margin-right: 5%
+}
+
+#dashboard #detailslabel {
+    margin-left: 5%;
+}
+
+#creategame {
+    position: absolute;
+    bottom: 0;
+    left: 42.5%;
+}
 
 
 
@@ -299,7 +346,7 @@ tr {
     margin-left: 20%;
 }
 
-#details {
+#game_page #details {
     margin-top: 100px;
 }
 
@@ -321,7 +368,7 @@ tr {
     padding-top: 5px;
 }
 
-#right_box #joingame {
+#right_box #joingame, #right_box #leavegame {
     background-color: #12b8fe;
     border: none;
     width: 33%;
@@ -348,6 +395,9 @@ tr {
 #game_page .rankingCont {
     right: 10%;
 }
+
+
+
 
 
 

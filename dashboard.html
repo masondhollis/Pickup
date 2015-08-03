@@ -9,6 +9,7 @@
         <img src="./img/pickup-logo.png" id="logo">
         <img src="./img/logout.png" id="logout">
         <img src="./img/plus.png" id="plus" class="new_game">
+        <p id="showUsername"></p>
         
         
         <div id="current_games" class="white_box">
@@ -21,6 +22,7 @@
                     <th>Intensity</th>
                 </tr>
             </table>
+            <p class="nogames">There are no games in your area, start your own!</p>
         </div>
         
         <div id="your_games" class="white_box">
@@ -33,6 +35,7 @@
                     <th>Intensity</th>
                 </tr>
             </table>
+            <p class="nogames">You have not created any games. Join other players or start your own!</p>
             <button id="new_game" class="new_game">NEW GAME</button>
         </div>
         <p class="rankingCont"><span id="rank"></span>pts</p>
@@ -40,23 +43,24 @@
         
         
         <!-- Hidden on load -->
-        <div id="overlay">
-            <div id="create_game" class="modal">
-                <h3>Create Game</h1>
+            <div id="create_game" class="white_box">
+                <h2>Create Game</h2>
                 <form id="creategameform">
-                    <input id="sport" type="text" placeholder="sport">
-                    <input id="location" type="text" placeholder="location">
-                    <input id="time" type="text" placeholder="time (4:00PM)">
-                    <input id="intensity" type="text" placeholder="intensity">
-                        
+                    <div id="left">
+                        <label>Sport</label><input id="sport" type="text" placeholder="ex: Basketball"><br>
+                        <label>Location</label><input id="location" type="text" placeholder="South IM"><br>
+                        <label>Time</label><input id="time" type="text" placeholder="4:00PM"><br>
+                        <label>Intensity</label><input id="intensity" type="text" placeholder="Chill"><br>
+                    </div>
+                    <label id="detailslabel">Details</label><textarea id="details" placeholder="Add more info"></textarea>
+
                     <!-- Naa - Research best way to get time of game.
                         Needs to be in the same format as parse time.
                         See "save games" section in controller.js for how we send it to parse. -->
                         
-                    <input type="submit">
+                    <button type="submit" id="creategame">CREATE</button>
                 </form>
             </div>
-        </div>
         <script src="./js/controller.js"></script>
         <script src="./js/dashboardController.js"></script>
     </body>

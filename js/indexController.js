@@ -2,36 +2,47 @@
 *                         HOMEPAGE                         *
 ***********************************************************/
 
-
+var joinShown = false;
+var signInShown = false;
 
 //Show registerbox when "register" button clicked
 $('#register').click(function(){
-     $('#loginform').hide();
-     $('#joinform').show();
-     
-     //Transfer info from login form to register form.
-     //This feels hack-y, theres probably a better way to do it...
-     $("#Reg_username").val($("#username").val());
-     $("#Reg_password").val($("#password").val());
+     if (joinShown == false) {
+          $('#loginform').hide();
+          $('#joinform').show();
+          joinShown = true;
+          
+          //Transfer info from login form to register form.
+          //This feels hack-y, theres probably a better way to do it...
+          $("#Reg_username").val($("#username").val());
+          $("#Reg_password").val($("#password").val());
+     }
+     else
+          $('#joinform').submit();
  });
 
 $('#login').click(function() {
-     $('#joinform').hide();
-     $('#loginform').show();
+     if (signInShown == false) {
+          $('#joinform').hide();
+          $('#loginform').show();
+          signInShown = true;
+     }
+     else login();
 });
 
 //Verify login and redirect to dashboard
 $('#loginform').submit(function(event){
     
     event.preventDefault();
-
     login();
     
 });
 
 //Create new user
-$('#registerform').submit(function(event){
+$('#joinform').submit(function(event){
+    
     event.preventDefault();
+    
     
     //Transfer Reg_user to user
     $("#username").val($("#Reg_username").val());
