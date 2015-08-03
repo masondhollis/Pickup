@@ -6,14 +6,33 @@
 //Populate all games from database
 var newGame = new Game();
 var allGames = new Parse.Query(Game);
+allGames.include("User");
 allGames.find({
     success: function(gamesList) {
         for (var i = 0; i < gamesList.length; i++) {
             game = gamesList[i];
-            var $gameElm = $('#gametemplate').clone(true);
-            $gameElm.html(game.get('sport')+' at '+game.get('location'));
-            $gameElm.attr("id", game.id);
-            $('#current_games').append($gameElm);
+            
+            //get Creator name
+            var usernameParam = {
+                userID: game.get('owner').id
+            };
+            Parse.Cloud.run('getUsername', usernameParam, {
+                success: function(response) {
+                    console.log("SUCCESS: " + response);
+                },
+                error: function(response) {
+                    console.log("ERROR: " + response);
+                }
+            });
+            
+            var $gameElm;
+            $gameElm = ('<tr id="'+game.id+'"><td style="text-align: left">'+game.get('sport')+' @ '+game.get('location')+'</td>'+
+                          '<td>'+game.get('player_id').length+'</td>'+
+                          '<td>'+game.get('Time')+'</td>'+
+                          '<td>'+game.get('intensity')+'</td></tr>');
+            
+            $('#current_games table').append($gameElm);
+            
         }
     },
     error: function(error) {
@@ -28,10 +47,16 @@ yourGames.find({
     success: function(gamesList) {
         for (var i = 0; i < gamesList.length; i++) {
             game = gamesList[i];
-            var $gameElm = $('#yourgametemplate').clone(true);
-            $gameElm.html(game.get('sport')+' at '+game.get('location'));
-            $gameElm.attr("id", game.id);
-            $('#your_games').append($gameElm);
+            
+            
+            
+            var $gameElm;
+            $gameElm = ('<tr id="'+game.id+'"><td style="text-align: left">'+game.get('sport')+' @ '+game.get('location')+'</td>'+
+                          '<td>'+game.get('player_id').length+'</td>'+
+                          '<td>'+game.get('Time')+'</td>'+
+                          '<td>'+game.get('intensity')+'</td></tr>');
+            
+            $('#your_games table').append($gameElm);
         }
     },
     error: function(error) {
@@ -46,7 +71,7 @@ Parse.User.current().fetch().then(function(user) {
 
 
 //Show form to create new game
-$('#create_game').click(function() {
+$('.new_game').click(function() {
     $('#overlay').show();
 });
 
@@ -55,11 +80,23 @@ $('#creategameform').submit(function() {
     newGame.set("sport", $('#sport').val());
     newGame.set("location", $('#location').val());
     newGame.set("owner", Parse.User.current());
+    newGame.set("Time", $('#time').val());
+    newGame.set("intensity", $('#intensity').val());
     newGame.addUnique("player_id", Parse.User.current().id);
     newGame.save(null, null);
 });
 
 //Navigate to game page when clicked
-$(document).on('click', 'p', function() {
-    window.location.href = "./game.html?gameID="+this.id;
+$(document).on('click', 'tr', function() {
+    if (this.id != "table_titles") {
+        window.location.href = "./game.html?gameID="+this.id;
+    }
 });
+
+
+
+
+$('#logout').click(function() {
+    Parse.User.logOut();
+    parent.history.back();
+})

@@ -2,6 +2,12 @@
 @font-face {font-family: quicksand; src: url('../font/Quicksand_Book.otf');}
 @font-face {font-family: gotham; src: url('../font/Gotham/Gotham-Medium.otf');}
 @font-face {font-family: gotham-light; src: url('../font/Gotham/Gotham-Light.otf')}
+@font-face {font-family: gotham-bold; src: url('../font/Gotham/Gotham-Bold.otf')}
+
+
+*{
+    font-family: gotham;
+}
 
 body {
     margin: 0;
@@ -15,6 +21,27 @@ h1 {
     letter-spacing: 10px;
     color: #444444;
     margin: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-style: hidden;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    color: #757575;
+}
+
+th, td {
+   border: 1px solid #757575;
+}
+
+tr {
+    height: 30px;
 }
 
 #header {
@@ -144,7 +171,7 @@ h1 {
 
 #register_modal {
     background-image: url("https://lh3.ggpht.com/zLa8_9fnCaAZl8bppGvEOEoCQr4cZKbPwNO6CwGk4Lg6KfCf40b1bwp4raKlEldFiEk=h900");
-    background-size: cover;
+}
 
 
 
@@ -159,6 +186,12 @@ h1 {
 
 #dashboard h2 {
     font-family: gotham-light;
+    font-size: 20px;
+    color: #757575;
+}
+
+#dashboard p {
+    font-family: gotham-bold;
 }
 
 #dashboard #logo {
@@ -169,9 +202,53 @@ h1 {
     margin-right: auto;
 }
 
+#dashboard table {
+    width: 100%;
+}
+
+#dashboard #rankingCont {
+    position: absolute;
+    top: 5px;
+    right: 15%;
+    font-family: gotham-light;
+}
+
+#rankingCont span {
+    font-family: inherit;
+}
+
+#dashboard #logout {
+    position: absolute;
+    top: 12px;
+    left: 10%;
+}
+
+#dashboard #plus {
+    position: absolute;
+    top: 15px;
+    right: 10%;
+}
+
 .game_container {
     background-color: white;
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 20px;
+    padding-top: 1px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 5px;
+    box-shadow: 10px 10px 5px #888888;
+}
 
+#new_game {
+    background-color: #12b8fe;
+    border: none;
+    width: 15%;
+    height: 40px;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    margin-left: .5%;
 }

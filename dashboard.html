@@ -7,18 +7,35 @@
     </head>
     <body id="dashboard">
         <img src="./img/pickup-logo.png" id="logo">
+        <img src="./img/logout.png" id="logout">
+        <img src="./img/plus.png" id="plus" class="new_game">
         
         
         <div id="current_games" class="game_container">
             <h2>Games Near You</h2>
-            <p id="gametemplate"></p>
+            <table id="gametemplate" sortable>
+                <tr id="table_titles">
+                    <th></th>
+                    <th>Players</th>
+                    <th>Start Time</th>
+                    <th>Intensity</th>
+                </tr>
+            </table>
         </div>
+        
         <div id="your_games" class="game_container">
             <h2>Your Games</h2>
-            <p id="yourgametemplate"></p>
+            <table id="yourgametemplate">
+                <tr>
+                    <th></th>
+                    <th>Players</th>
+                    <th>Start Time</th>
+                    <th>Intensity</th>
+                </tr>
+            </table>
+            <button id="new_game" class="new_game">NEW GAME</button>
         </div>
-        <p>YOUR RANKING POINTS: <span id="rank"></span></p>
-        <button id="create_game">Create Game</button>
+        <p id="rankingCont"><span id="rank"></span>pts</p>
         
         
         
@@ -29,6 +46,8 @@
                 <form id="creategameform">
                     <input id="sport" type="text" placeholder="sport">
                     <input id="location" type="text" placeholder="location">
+                    <input id="time" type="text" placeholder="time (4:00PM)">
+                    <input id="intensity" type="text" placeholder="intensity">
                         
                     <!-- Naa - Research best way to get time of game.
                         Needs to be in the same format as parse time.

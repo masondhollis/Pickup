@@ -36,3 +36,19 @@ Parse.Cloud.define("updateRankings", function(request, response) {
         }
     })
 });
+
+Parse.Cloud.define("getUsername", function(request, response) {  
+  Parse.Cloud.useMasterKey();
+  var User = Parse.Object.extend("user");
+  var userQ = new Parse.Query(User);
+  userQ.equalTo("objectID", request.params.userID);
+  userQ.find({
+    success: function(user) {
+      response.success(user[0].id);
+    },
+    error: function(a, e) {
+      response.error("Error: " + e.message);
+    }
+  })
+
+});
