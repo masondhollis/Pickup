@@ -30,3 +30,10 @@ $('#overlay').click(function(){
 $('.modal').click(function(event){
    event.stopPropagation(); 
 });
+
+
+//Log Out
+$('#logout').click(function() {
+    Parse.User.logOut();
+    window.location.href="./index.html"
+})

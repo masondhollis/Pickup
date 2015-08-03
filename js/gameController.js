@@ -25,6 +25,8 @@ currentGame.find({
 
         $('#sport').html(game.get('sport'));
         $('#location').html(game.get('location'));
+        $('#time').html(game.get('Time'));
+        $('#details').html(game.get('details'));
         
         //populate other players
         var player = new Parse.Query(User);
@@ -47,15 +49,26 @@ currentGame.find({
         
         //Check if owner and show owner tools       
         if (game.get('owner').id == Parse.User.current().id) {
+            $('#joingame').css('left', '10%')
             $('#reportscore').show();
         }
         
     }
 });
 
+//Get User Rank
+Parse.User.current().fetch().then(function(user) {
+    $('#rank').html(Math.round(user.get('ranking')));
+})
+
 $('#joingame').click(function() {
        game.addUnique("player_id", Parse.User.current().id);
-       game.save(null, null);
+       game.save(null, {
+        success: function(){
+            location.reload();
+        },
+       });
+       
 });
 
 $('#reportscore').click(function() {

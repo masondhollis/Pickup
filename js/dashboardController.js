@@ -96,7 +96,4 @@ $(document).on('click', 'tr', function() {
 
 
 
-$('#logout').click(function() {
-    Parse.User.logOut();
-    parent.history.back();
-})
+

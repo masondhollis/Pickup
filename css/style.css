@@ -69,12 +69,20 @@ tr {
     display: none;
 }
 
-#header #username {
+#header #joinform {
+    display: none;
+}
+
+#header #username, #header #Reg_username {
     right: 350px;
 }
 
-#header #password {
+#header #password, #header #Reg_password {
     right: 240px;
+}
+
+#header #Reg_email {
+    right: 460px;
 }
 
 #header button {
@@ -106,7 +114,7 @@ tr {
     background-attachment: fixed;
 }
 
-#title #logo {
+#title #main_logo {
     width: 250px;
     display: block;
     margin-left: auto;
@@ -194,7 +202,7 @@ tr {
     font-family: gotham-bold;
 }
 
-#dashboard #logo {
+#logo {
     margin-top: 25px;
     width: 175px;
     display: block;
@@ -206,30 +214,30 @@ tr {
     width: 100%;
 }
 
-#dashboard #rankingCont {
+.rankingCont {
     position: absolute;
     top: 5px;
     right: 15%;
     font-family: gotham-light;
 }
 
-#rankingCont span {
+.rankingCont span {
     font-family: inherit;
 }
 
-#dashboard #logout {
+#logout {
     position: absolute;
     top: 12px;
     left: 10%;
 }
 
-#dashboard #plus {
+#plus {
     position: absolute;
     top: 15px;
     right: 10%;
 }
 
-.game_container {
+.white_box {
     background-color: white;
     margin-left: 10%;
     margin-right: 10%;
@@ -252,3 +260,95 @@ tr {
     font-size: 15px;
     margin-left: .5%;
 }
+
+
+
+
+
+/* GAME PAGE */
+
+#game_page {
+    background-image: url('../img/game-bg.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+#game_box {
+    padding-top: 30px;
+    padding-left: 4%;
+    padding-bottom: 30px;
+    height: 300px;
+}
+
+
+#left_box {
+    width: 66%;
+    height: 100%;
+    border-right: 1px solid #757575;
+    float: left;
+}
+
+#game_page h2, #game_page h2 span {
+    letter-spacing: 2px;
+    color: #757575;
+    display: inline;
+    font-family: gotham-light;
+}
+
+#game_page #time {
+    margin-left: 20%;
+}
+
+#details {
+    margin-top: 100px;
+}
+
+#right_box {
+    width: 33%;
+    float: right;
+    text-align: center;
+    height: 100%;
+    position: relative;
+}
+
+#right_box h2 {
+    border-bottom: 1px solid #757575;
+    padding-bottom: 10px;
+}
+
+#right_box p {
+    color: #757575;
+    padding-top: 5px;
+}
+
+#right_box #joingame {
+    background-color: #12b8fe;
+    border: none;
+    width: 33%;
+    height: 40px;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    bottom: 5px;
+    left: 34%;
+}
+
+#right_box #reportscore {
+    background-color: #FF6060;
+    border: none;
+    width: 33%;
+    height: 40px;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    bottom: 5px;
+    right: 10%;
+}
+
+#game_page .rankingCont {
+    right: 10%;
+}
+
+
+
+

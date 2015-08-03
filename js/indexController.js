@@ -4,10 +4,10 @@
 
 
 
-var $registerbox = $('#overlay');
 //Show registerbox when "register" button clicked
 $('#register').click(function(){
-     $registerbox.show();
+     $('#loginform').hide();
+     $('#joinform').show();
      
      //Transfer info from login form to register form.
      //This feels hack-y, theres probably a better way to do it...
@@ -16,6 +16,7 @@ $('#register').click(function(){
  });
 
 $('#login').click(function() {
+     $('#joinform').hide();
      $('#loginform').show();
 });
 

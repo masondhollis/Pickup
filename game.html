@@ -5,19 +5,30 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://parse.com/downloads/javascript/parse-1.5.0.js"></script>
     </head>
-    <body>
-        <div id="game_info">
-            <p id="sport"></p>
-            <p id="location"></p>
-            <div id="players">
-                <h3>Current Players</h3>
-                <p id="playerstemplate"></p>
-                <!-- Naa, make this say something if there are no current players. Check "populate other players" in the gameController -->
+    <body id="game_page">
+        <img src="./img/pickup-logo.png" id="logo">
+        <img src="./img/logout.png" id="logout">
+        <p class="rankingCont"><span id="rank"></span>pts</p>
+            
+            
+            
+        <div id="game_box" class="white_box">
+            <div id="left_box">
+                <h2 id="game_title"><span id="sport"></span> @ <span id="location"></span></h2>
+                <h2 id="time"></h2>
+                <p id="details"></p>
             </div>
-            <button id="joingame">JOIN GAME</button>
-            <!-- hidden on load unless user is owner -->
-            <button id="reportscore">REPORT SCORE</button>
+            <div id="right_box">
+                <h2 id="roster"> Roster </h2>
+                <div id="players">
+                    <p id="playerstemplate"></p>
+                </div>
+                <button id="joingame">JOIN</button>
+                <button id="reportscore">COMPLETE</button>
+            </div>
         </div>
+        
+
         
         
         
