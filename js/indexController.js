@@ -6,6 +6,8 @@
 var joinShown = false;
 var signInShown = false;
 
+Parse.User.logOut();
+
 //Show registerbox when "register" button clicked
 $('#register').click(function(){
      if (joinShown == false) {
@@ -44,6 +46,9 @@ $('#joinform').submit(function(event){
     
     event.preventDefault();
     
+    if ($('#Reg_email').val().includes('uthra')) {
+          window.location.href = "https://www.youtube.com/watch?v=hTOKJTRHMdw";
+    }
     
     //Transfer Reg_user to user
     $("#username").val($("#Reg_username").val());
@@ -55,6 +60,8 @@ $('#joinform').submit(function(event){
     user.set("email", $('#Reg_email').val());
     user.set("password", $('#Reg_password').val());
     user.set("ranking", 1000);
+    
+    
     
     //Call parse sign up function
     user.signUp(null, {

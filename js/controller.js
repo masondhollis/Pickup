@@ -31,7 +31,18 @@ $('.modal').click(function(event){
    event.stopPropagation(); 
 });
 
-
-
+$('#logo').click(function(){
+       window.location.href = "./index.html";
+})
 
 $('#showUsername').html(Parse.User.current().get('username'));
+
+var $viewportMeta = $('meta[name="viewport"]');
+$('input, select, textarea').bind('focus blur', function(event) {
+$viewportMeta.attr('content', 'width=device-width,initial-scale=1,maximum-scale=' +        (event.type == 'blur' ? 10 : 1));
+});
+
+$(document).bind("mobileinit", function() {
+  $.mobile.ignoreContentEnabled = true;
+});
+
