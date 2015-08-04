@@ -1,8 +1,11 @@
 <html>
     <head>
         <title>Pickup</title>
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" media="screen and (min-width: 800px) and (min-device-width: 800px)" href="css/style.css" />
+        <link rel="stylesheet" media="screen and (max-device-width: 800px)" href="css/mobile.css" />
+        <link rel="stylesheet" media="screen and (max-width: 800px)" href="css/mobile.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
         <script src="https://parse.com/downloads/javascript/parse-1.5.0.js"></script>
     </head>
     <body id="dashboard">
@@ -43,14 +46,14 @@
         
         
         <!-- Hidden on load -->
-            <div id="create_game" class="white_box">
+            <div id="create_game" class="white_box" data-enhance="false" data-role="none">
                 <h2>Create Game</h2>
                 <form id="creategameform">
                     <div id="left">
-                        <label>Sport</label><input id="sport" type="text" placeholder="ex: Basketball"><br>
-                        <label>Location</label><input id="location" type="text" placeholder="South IM"><br>
-                        <label>Time</label><input id="time" type="text" placeholder="4:00PM"><br>
-                        <label>Intensity</label><input id="intensity" type="text" placeholder="Chill"><br>
+                        <label>Sport</label><input id="sport" type="text" placeholder="ex: Basketball" data-role="none"><br>
+                        <label>Location</label><input id="location" type="text" placeholder="South IM" data-role="none"><br>
+                        <label>Time</label><input id="time" type="text" placeholder="4:00PM" data-role="none"><br>
+                        <label>Intensity</label><input id="intensity" type="text" placeholder="Chill" data-role="none"><br>
                     </div>
                     <label id="detailslabel">Details</label><textarea id="details" placeholder="Add more info"></textarea>
 
@@ -58,7 +61,7 @@
                         Needs to be in the same format as parse time.
                         See "save games" section in controller.js for how we send it to parse. -->
                         
-                    <button type="submit" id="creategame">CREATE</button>
+                    <button type="submit" id="creategame" data-role="none">CREATE</button>
                 </form>
             </div>
         <script src="./js/controller.js"></script>

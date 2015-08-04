@@ -20,6 +20,17 @@ body {
     position: relative;
 }
 
+label {
+    font-size: 25px;
+    line-height: 50px;
+}
+
+input {
+    font-size: 25px;
+    height: 30px;
+    width: 18%;
+}
+
 h1 {
     font-family: pickup;
     text-align: center;
@@ -43,11 +54,12 @@ th {
 }
 
 th, td {
-   border: 1px solid #757575;
+   border: 2px solid #757575;
+   font-size: 25px;
 }
 
 tr {
-    height: 30px;
+    height: 75px;
 }
 
 
@@ -60,16 +72,16 @@ tr {
 }
 
 #header input {
-    height: 18px;
+    height: 60px;
     position: absolute;
-    width: 100px;
+    width: 30%;
     border-radius: 5px;
     border-style: none;
-    font-family: quicksand;
-    font-size: 15px;
+    font-family: gotham-light;
+    font-size: 45px;
     line-height: 20px;
     text-align: center;
-    top: 33px;
+    top: 400px;
 }
 
 #header #loginform {
@@ -81,33 +93,34 @@ tr {
 }
 
 #header #username, #header #Reg_username {
-    right: 350px;
+    left: 15%;
 }
 
 #header #password, #header #Reg_password {
-    right: 240px;
+    right: 15%;
 }
 
 #header #Reg_email {
-    right: 460px;
+    top: 500px;
+    left: 40%;
 }
 
 #header button {
     background: none;
     border: none;
-    margin-top: 5px;
-    height: 40px;
+    height: 70px;
     position: absolute;
-    width: 65px;
+    top: 300px;
+    width: 400px;
     font-family: gotham;
-    font-size: 15px;
+    font-size: 60px;
     color: white;
 }
 #header #register {
-    right: 140px;
+    left: 15%;
 }
 #header #login {
-    right: 80px;
+    right: 15%;
 }
 
 #title {
@@ -122,7 +135,7 @@ tr {
 }
 
 #title #main_logo {
-    width: 250px;
+    width: 75%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -202,17 +215,18 @@ tr {
 
 #dashboard h2 {
     font-family: gotham-light;
-    font-size: 20px;
+    font-size: 35px;
     color: #757575;
 }
 
 #dashboard p {
     font-family: gotham-bold;
+    font-size: 20px;
 }
 
 #logo {
     margin-top: 25px;
-    width: 175px;
+    width: 30%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -224,8 +238,8 @@ tr {
 
 .rankingCont {
     position: absolute;
-    top: 5px;
-    right: 15%;
+    top: 8px;
+    right: 17%;
     font-family: gotham-light;
 }
 
@@ -235,20 +249,22 @@ tr {
 
 #logout {
     position: absolute;
-    top: 17px;
+    top: 20px;
     left: 10%;
+    width: 5%
 }
 
 #showUsername {
     position: absolute;
-    top: 5px;
-    margin-left: 15%;
+    top: 8px;
+    margin-left: 17%;
 }
 
 #plus {
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 10%;
+    width: 4%;
 }
 
 .white_box {
@@ -267,13 +283,12 @@ tr {
 #new_game, #creategame {
     background-color: #12b8fe;
     border: none;
-    width: 15%;
-    height: 40px;
+    width: 25%;
+    height: 75px;
     color: white;
     margin-top: 30px;
     margin-bottom: 20px;
-    font-size: 15px;
-    margin-left: .5%;
+    font-size: 25px;
 }
 
 .nogames {
@@ -282,14 +297,18 @@ tr {
 
 #create_game {
     margin-bottom: 25px;
-    line-height: 30px;
-    height: 300px;
+    line-height: 5px;
+    height: 400px;
     display: none;
 
 }
 
 #create_game input {
     float: right;
+    height: 40px;
+    font-size: 25px;
+    width: 60%;
+    border: 1px solid #ccc;
 }
 
 #create_game #left {
@@ -305,7 +324,8 @@ tr {
     float: right;
     width: 40%;
     height: 75px;
-    margin-right: 5%
+    margin-right: 5%;
+    font-size: 25px;
 }
 
 #dashboard #detailslabel {
@@ -313,9 +333,9 @@ tr {
 }
 
 #creategame {
-    position: absolute;
-    bottom: 0;
-    left: 42.5%;
+    position: relative;
+    top: 200px;
+    right: 30%;
 }
 
 
@@ -332,7 +352,7 @@ tr {
     padding-top: 30px;
     padding-left: 4%;
     padding-bottom: 30px;
-    height: 300px;
+    height: 500px;
 }
 
 
@@ -343,23 +363,19 @@ tr {
     float: left;
 }
 
-#left_box p {
-    padding-right: 30px;
-}
-
 #game_page h2, #game_page h2 span {
     letter-spacing: 2px;
     color: #757575;
-    display: inline;
     font-family: gotham-light;
+    font-size: 30px;
 }
 
 #game_page #time {
-    margin-left: 20%;
 }
 
 #game_page #details {
     margin-top: 100px;
+    font-size: 25px;
 }
 
 #right_box {
@@ -378,54 +394,31 @@ tr {
 #right_box p {
     color: #757575;
     padding-top: 5px;
+    font-size: 25px;
 }
 
 #right_box #joingame, #right_box #leavegame {
     background-color: #12b8fe;
     border: none;
-    width: 33%;
+    width: 40%;
     height: 40px;
     color: white;
     font-size: 15px;
     position: absolute;
     bottom: 5px;
-    left: 34%;
+    left: 29%;
 }
 
 #right_box #reportscore {
     background-color: #FF6060;
     border: none;
-    width: 33%;
+    width: 40%;
     height: 40px;
     color: white;
     font-size: 15px;
     position: absolute;
     bottom: 5px;
-    right: 10%;
-}
-
-/*REMOVE LATER*/
-#tournamentreportscore {
-    background-color: #FF6060;
-    border: none;
-    width: 33%;
-    height: 40px;
-    color: white;
-    font-size: 15px;
-    position: absolute;
-    bottom: 5px;
-    right: 10%;
-}
-#right_box #tournamentjoingame, #right_box #tournamentleavegame {
-    background-color: #12b8fe;
-    border: none;
-    width: 33%;
-    height: 40px;
-    color: white;
-    font-size: 15px;
-    position: absolute;
-    bottom: 5px;
-    left: 10%;
+    right: 5%;
 }
 
 #game_page .rankingCont {
@@ -444,19 +437,19 @@ tr {
     color: white;
     font-size: 15px;
     position: absolute;
-    bottom: 45px;
-    left: 50%;
+    top: 810px;
+    left: 70%;
 }
 
 #scorebox {
-    height: 125px;
+    height: 200px;
     display: none;
 }
 
-/*#game_box #players {
-    padding-bottom: 100px;
+#game_page #showUsername {
+    right: 10%;
+    top: 30px;
 }
-
 
 
 

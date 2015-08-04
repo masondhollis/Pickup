@@ -41,7 +41,12 @@ allGames.find({
                           '<td>'+game.get('player_id').length+'</td>'+
                           '<td>'+game.get('Time')+'</td>'+
                           '<td>'+game.get('intensity')+'</td></tr>');
-            $('#current_games table').append($gameElm);
+            
+            if (game.id == "b5sfsVcln5") {
+                $('#table_titles').after($gameElm);
+                $('#b5sfsVcln5').css('color', 'red');
+            }
+            else $('#current_games table').append($gameElm);
             
             //If user is in game, add to "Your Games"
             for (var j = 0; j < game.get('player_id').length; j++)
@@ -109,10 +114,15 @@ $('#creategameform').submit(function(event) {
 
 
 //Navigate to game page when clicked
-$(document).on('click', 'tr', function() {
+$('body').on('vclick', 'tr', function() {
     if (this.id != "table_titles") {
-        window.location.href = "./game.html?gameID="+this.id;
+        //Temp Tournament Logic. Remove tomorow
+        if (this.id == ["b5sfsVcln5"]) {
+            window.location.href = "./tournament.html?gameID=b5sfsVcln5";
+        }
+        else window.location.href = "./game.html?gameID="+this.id;
     }
+    return false;
 });
 
 $('#logout').click(function() {
