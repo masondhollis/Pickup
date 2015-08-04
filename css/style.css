@@ -181,6 +181,19 @@ tr {
     background-image: url("https://lh3.ggpht.com/zLa8_9fnCaAZl8bppGvEOEoCQr4cZKbPwNO6CwGk4Lg6KfCf40b1bwp4raKlEldFiEk=h900");
 }
 
+#header #joinform #joinerror{
+    color: rgb(04,63,45);
+    position: fixed;
+    left: 718px;
+    top: 57px;
+}
+    
+#header #loginform #loginerror{
+    color: rgb(04,63,45);
+    position: fixed;
+    left: 827px;
+    top: 57px;
+}
 
 
 

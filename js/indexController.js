@@ -1,6 +1,7 @@
 /***********************************************************
 *                         HOMEPAGE                         *
 ***********************************************************/
+//$("#joinerror").hide();
 
 var joinShown = false;
 var signInShown = false;
@@ -62,7 +63,8 @@ $('#joinform').submit(function(event){
         },
         error: function(user,error) {
             //Naa - Put the error.message string on the screen somewhere. Not in an alert box.
-            alert(error.message + "");
+            //alert(error.message + "");
+            $("#joinerror").html(error.message);   
         }
     });
     
@@ -86,7 +88,8 @@ function login() {
         //Executes if username/password not valid
         error: function(user, error) {
             //Naa - Put the error.message string on the screen somewhere. Not in an alert box.
-            alert(error.message);
+            $("#loginerror").html(error.message);
+            //alert(error.message);
         }
     })
 };
