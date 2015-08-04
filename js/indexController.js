@@ -11,6 +11,7 @@ Parse.User.logOut();
 $('#register').click(function(){
      if (joinShown == false) {
           $('#loginform').hide();
+          signInShown = false;
           $('#joinform').show();
           joinShown = true;
           
@@ -26,6 +27,7 @@ $('#register').click(function(){
 $('#login').click(function() {
      if (signInShown == false) {
           $('#joinform').hide();
+          joinShown = false;
           $('#loginform').show();
           signInShown = true;
      }
