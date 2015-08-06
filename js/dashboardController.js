@@ -37,10 +37,18 @@ allGames.find({
             });*/
             
             var $gameElm;
-            $gameElm = ('<tr id="'+game.id+'" class="'+game.id+'"><td style="text-align: left">'+game.get('sport')+' @ '+game.get('location')+'</td>'+
+            var sport = game.get('sport').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            var location = game.get('location').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            var time = game.get('Time').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            var intensity = game.get('intensity').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            
+            
+            
+            
+            $gameElm = ('<tr id="'+game.id+'" class="'+game.id+'"><td style="text-align: left">'+sport+' @ '+location+'</td>'+
                           '<td>'+game.get('player_id').length+'</td>'+
-                          '<td>'+game.get('Time')+'</td>'+
-                          '<td>'+game.get('intensity')+'</td></tr>');
+                          '<td>'+time+'</td>'+
+                          '<td>'+intensity+'</td></tr>');
             
             if (game.id == "b5sfsVcln5") {
                 $('#table_titles').after($gameElm);

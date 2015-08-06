@@ -26,10 +26,20 @@ currentGame.find({
         //Hopefully theres only one object in this array but just to avoid weird things later...
         game = games[0];
 
-        $('#sport').html(game.get('sport'));
-        $('#location').html(game.get('location'));
-        $('#time').html(game.get('Time'));
-        $('#details').html(game.get('details'));
+        var sport = game.get('sport').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var location = game.get('location').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var time = game.get('Time').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var details = game.get('details').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        
+        $('#sport').html(sport);
+        $('#location').html(location);
+        $('#time').html(game.get(time));
+        $('#details').html(game.get(details));
+        
+        var sport = game.get('sport').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var location = game.get('location').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var time = game.get('Time').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var intensity = game.get('intensity').replace(/</g, "&lt;").replace(/>/g, "&gt;");
         
         //populate other players
         var player = new Parse.Query(User);
@@ -49,7 +59,8 @@ currentGame.find({
               player.find({
                      success: function(players) {
                             var $playerElm = $('#playerstemplate').clone(true);
-                            $playerElm.html(players[0].get('username')+" ("+Math.round(players[0].get('ranking'))+"pts)");
+                            var usern = players[0].get('username').replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                            $playerElm.html(usern+" ("+Math.round(players[0].get('ranking'))+"pts)");
                             $playerElm.attr("id", players[0].id);
                             $playerElm.attr("rank",  players[0].get('ranking'));
                             var added = false;
@@ -58,11 +69,7 @@ currentGame.find({
                                 if (added == false) {
                                     console.log($(this).text());
                                     if (index>0) {
-                                        var abc = players[0].get('ranking');
-                                        var def = $(this).attr('rank');
-                                    
                                         if(players[0].get('ranking') > $(this).attr('rank')){
-                                            console.log("SORT ADDED");
                                             $(this).before($playerElm);
                                             added = true;
                                         }

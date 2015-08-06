@@ -48,9 +48,6 @@ $('#joinform').submit(function(event){
     
     event.preventDefault();
     
-    if ($('#Reg_email').val().includes('uthra')) {
-          window.location.href = "https://www.youtube.com/watch?v=hTOKJTRHMdw";
-    }
     
     //Transfer Reg_user to user
     $("#username").val($("#Reg_username").val());
