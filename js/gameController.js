@@ -33,8 +33,8 @@ currentGame.find({
         
         $('#sport').html(sport);
         $('#location').html(location);
-        $('#time').html(game.get(time));
-        $('#details').html(game.get(details));
+        $('#time').html(time);
+        $('#details').html(details);
         
         var sport = game.get('sport').replace(/</g, "&lt;").replace(/>/g, "&gt;");
         var location = game.get('location').replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -47,12 +47,13 @@ currentGame.find({
         var numPlayers = game.get('player_id').length;
         
         //expand box to fit all players
+        /* FIXED WITH SCROLL I HOPE
         if (numPlayers > 4) {
             var height = $('#game_box').height();
             var linesToAdd = numPlayers - 4;
             var newHeight = height + linesToAdd * 55;
             $('#game_box').css("height", newHeight+"px");
-        }
+        }*/
         var roster;
         if (game.get('player_id')) for (var i = 0; i < numPlayers; i++) {
               player.equalTo("objectId", game.get('player_id')[i]);
@@ -191,7 +192,7 @@ $('#scoreform').submit(function(event) {
     //Text me if you need to change this. You need to have Parse command line tools installed
     Parse.Cloud.run('updateRankings', setRankingParams, {
         success: function(response) {
-            if (gameID != 'b5sfsVcln5') {
+            if (gameID != 'q0I1G2mrSd') {
                 currentGame.get(gameID, {
                     success: function(tempGame) {
                         tempGame.destroy({});

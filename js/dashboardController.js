@@ -50,9 +50,9 @@ allGames.find({
                           '<td>'+time+'</td>'+
                           '<td>'+intensity+'</td></tr>');
             
-            if (game.id == "b5sfsVcln5") {
+            if (game.id == "q0I1G2mrSd") {
                 $('#table_titles').after($gameElm);
-                $('#b5sfsVcln5').css('color', 'red');
+                $('#q0I1G2mrSd').css('color', 'red');
             }
             else $('#current_games table').append($gameElm);
             
@@ -125,8 +125,8 @@ $('#creategameform').submit(function(event) {
 $('body').on('vclick', 'tr', function() {
     if (this.id != "table_titles") {
         //Temp Tournament Logic. Remove tomorow
-        if (this.id == ["b5sfsVcln5"]) {
-            window.location.href = "./tournament.html?gameID=b5sfsVcln5";
+        if (this.id == ["q0I1G2mrSd"]) {
+            window.location.href = "./tournament.html?gameID=q0I1G2mrSd";
         }
         else window.location.href = "./game.html?gameID="+this.id;
     }

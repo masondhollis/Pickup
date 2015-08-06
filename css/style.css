@@ -3,6 +3,7 @@
 @font-face {font-family: gotham; src: url('../font/Gotham/Gotham-Medium.otf');}
 @font-face {font-family: gotham-light; src: url('../font/Gotham/Gotham-Light.otf')}
 @font-face {font-family: gotham-bold; src: url('../font/Gotham/Gotham-Bold.otf')}
+@font-face {font-family: noir; src: url('../font/Distant_Stroke.otf')}
 
 
 
@@ -417,6 +418,10 @@ tr {
     right: 10%;
 }
 
+#right_box #players {
+    overflow: scroll;
+}
+
 /*REMOVE LATER*/
 #tournamentreportscore {
     background-color: #FF6060;
@@ -466,8 +471,25 @@ tr {
     display: none;
 }
 
-/*#game_box #players {
-    padding-bottom: 100px;
+
+
+/* RANKING PAGE */
+
+#ranking {
+    background-image: url('../img/game-bg.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+#ranking .white_box {
+    height: 500px;
+    overflow: scroll;
+}
+
+#ranking h1 {
+    font-family: noir;
+    font-size: 50px;
+    margin-top: 20px;
 }
 
 
