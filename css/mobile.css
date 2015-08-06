@@ -399,7 +399,7 @@ tr {
     font-size: 25px;
 }
 
-#right_box #joingame, #right_box #leavegame {
+#right_box #joingame, #tournamentjoingame, #right_box #leavegame, #tournamentleavegame {
     background-color: #12b8fe;
     border: none;
     width: 40%;
@@ -411,7 +411,7 @@ tr {
     left: 29%;
 }
 
-#right_box #reportscore {
+#right_box #reportscore, #tournamentreportscore {
     background-color: #FF6060;
     border: none;
     width: 40%;

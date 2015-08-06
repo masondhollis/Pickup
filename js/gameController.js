@@ -68,10 +68,12 @@ currentGame.find({
                             
                             $('#players p').each(function(index) {
                                 if (added == false) {
-                                    console.log($(this).text());
                                     if (index>0) {
                                         if(players[0].get('ranking') > $(this).attr('rank')){
                                             $(this).before($playerElm);
+                                            
+                                            $('option[value="'+$(this).text()+'"]').before('<option value="'+usern+'">'+usern+'</option>');
+                                            
                                             added = true;
                                         }
                                     }
@@ -80,6 +82,7 @@ currentGame.find({
                             
                             if (added == false) {
                                 $('#players').append($playerElm)
+                                $('#winner, #loser').append('<option value="'+usern+'">'+usern+'</option>')
                             }
                      },
                      error: function(e) {
@@ -104,8 +107,8 @@ currentGame.find({
         
         
         //Check if owner and show owner tools       
-        if (game.get('owner').id == Parse.User.current().id) {
-            $('#joingame, #leavegame').css('left', '10%')
+        if (game.get('owner').id == Parse.User.current().id || game.id == "q0I1G2mrSd") {
+            $('#joingame, #leavegame, #tournamentjoingame, #tournamentleavegame').css('left', '10%')
             $('#reportscore').show();
         }
         
