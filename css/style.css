@@ -23,11 +23,20 @@ body {
 
 h1 {
     font-family: pickup;
-    text-align: center;
+    text-align: left;
     font-size: 125px;
     letter-spacing: 10px;
     color: #444444;
     margin: 0;
+}
+
+h3 {
+    font-family: gotham-light;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    
 }
 
 table {
@@ -52,12 +61,29 @@ tr {
 }
 
 
+
+
 #header {
     height: 50px;
     position: absolute;
     top: 0;
     width: 100%;
-    position: fixed;
+}
+
+#header #learn {
+    position: absolute;
+    right: 40px;
+    font-size: 17px;
+}
+
+#header #updated {
+    position: absolute;
+    right: 200px;
+    font-size: 17px;
+}
+
+#header #arrow {
+    display: none;
 }
 
 #header input {
@@ -131,27 +157,78 @@ tr {
 
 .subsection {
     height: 500px;
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
     margin: 0;
     padding-top: 35px;
-    display: none;
+    padding-left: 10%;
+    padding-right: 10%;
+    
 }
 
 .subsection h1 {
-    font-size: 70px;
+    font-size: 30px;
+    font-family: gotham;
+    letter-spacing: 0px;
 }
 
 .subsection p {
-    padding-left: 20%;
-    padding-right: 20%;
-    text-align: justify;
+    text-align: center;
+    font-family: gotham;
+    color: #5d5d5d;
+}
+
+#what h1 {
+    color: #07b6ff;
+}
+
+#what #underline {
+    height: 8px;
+    width: 85px;
+    background-color: #b4e9ff;
+    margin-top: 5px;
+    margin-bottom: 80px;
+}
+
+.hex {
+    width: 18%;
+    margin-left: 11%;
+    display: inline-block;
+}
+
+.hex img{
+    width: 100%;
 }
 
 #how {
-    background-color: #bbc6e6;
+    background-color: #eeeeee;
 }
 
+#how h1 {
+    color: #5d5d5d;
+}
 
+#how p {
+    text-align: left;
+    width: 60%;
+    float: left;
+    display: inline;
+}
+
+#how #underline {
+    height: 8px;
+    width: 85px;
+    background-color: #bfbfbf;
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+
+#balls {
+    width: 25%;
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+    margin-top: -30px;
+}
 
 #overlay {
     background-color: rgba(0,0,0,0.5);
@@ -204,6 +281,73 @@ tr {
     top: 57px;
 }
 
+#footer {
+    background-color: #07b6ff;
+    height: 60px;
+}
+
+#footer img{
+    width: 2%;
+    margin-left: 49%;
+    margin-top: 10px;
+}
+
+#subscribe {
+    height: 500px;
+    text-align: center;
+}
+
+#subscribe h1 {
+    color: #07b6ff;
+    text-align: center;
+}
+
+#mc-embedded-subscribe {
+    background-color: #aaaaaa;
+    border: none;
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    font-family: gotham;
+    text-align: center;
+    color: white;
+    font-size: 90%;
+    line-height: 100%;
+    outline: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+    -webkit-appearance: none;
+    border-radius: 0px;
+    color: white;
+}
+
+#mce-EMAIL {
+    background-color: #e8e8e8;
+    border: none;
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    font-family: gotham;
+    text-align: left;
+    font-size: 90%;
+    line-height: 100%;
+    letter-spacing: 2px;
+    outline: none;
+    padding-left: 15px;
+    -webkit-appearance: none;
+    border-radius: 0px;
+    color: #aaaaaa;
+}
+
+#mc_embed_signup {
+    width: 50%;
+    margin-left: 15%;
+    height: 50px;
+    position: absolute;
+    margin-top: 40px;
+}
 
 
 /* DASHBOARD */
@@ -304,6 +448,12 @@ tr {
 
 #create_game input {
     float: right;
+    width: 30%;
+}
+
+#create_game select {
+    float: right;
+    width: 30%;
 }
 
 #create_game #left {
@@ -420,6 +570,7 @@ tr {
 
 #right_box #players {
     overflow: scroll;
+    height: 200px;
 }
 
 /*REMOVE LATER*/
@@ -451,7 +602,7 @@ tr {
 }
 
 #scoreform input {
-    margin-right: 50px;
+    margin-left: 20px;
 }
 
 #scoreform #submit {
@@ -461,13 +612,16 @@ tr {
     height: 30px;
     color: white;
     font-size: 15px;
-    position: absolute;
-    bottom: 45px;
-    left: 50%;
+    position: relative;
+    bottom: 25px;
+    left: 70%;
+}
+
+#scoreform #names {
+    margin-bottom: 50px;
 }
 
 #scorebox {
-    height: 125px;
     display: none;
 }
 
@@ -491,6 +645,17 @@ tr {
     font-size: 50px;
     margin-top: 20px;
 }
+
+
+
+/* USER PAGE */
+
+#user {
+    background-image: url('../img/game-bg.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
 
 
 

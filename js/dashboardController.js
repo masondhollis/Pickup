@@ -4,7 +4,6 @@
 
 
 
-
 //Populate all games from database
 var newGame = new Game();
 
@@ -86,6 +85,11 @@ allGames.find({
     }
 });
 
+
+//Populate sports list in create game
+for (var i in sportslist) {
+    $('#create_game #sport').append("<option value='"+sportslist[i]+"'>"+sportslist[i]+"</option>");
+}
 
 
 

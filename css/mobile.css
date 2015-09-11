@@ -30,16 +30,24 @@ label {
 input {
     font-size: 25px;
     height: 30px;
-    width: 18%;
 }
 
 h1 {
     font-family: pickup;
-    text-align: center;
+    text-align: left;
     font-size: 125px;
     letter-spacing: 10px;
     color: #444444;
     margin: 0;
+}
+
+h3 {
+    font-family: gotham-light;
+    text-align: center;
+    font-size: 60px;
+    letter-spacing: 8px;
+    color: #FFFFFF;
+    
 }
 
 table {
@@ -70,8 +78,28 @@ tr {
     position: absolute;
     top: 0;
     width: 100%;
-    position: fixed;
 }
+
+#header #learn {
+    width: 40%;
+    position: absolute;
+    top: 350px;
+    left: 8%;
+    font-size: 50px;
+    letter-spacing: 0px;
+    display: block;
+}
+
+#header #updated {
+    width: 40%;
+    position: absolute;
+    top: 350px;
+    right: 8%;
+    font-size: 50px;
+    letter-spacing: 0px;
+    display: block;
+}
+
 
 #header input {
     height: 60px;
@@ -111,9 +139,7 @@ tr {
     background: none;
     border: none;
     height: 70px;
-    position: absolute;
-    top: 300px;
-    width: 400px;
+
     font-family: gotham;
     font-size: 60px;
     color: white;
@@ -129,11 +155,12 @@ tr {
     width: 100%;
     height: 100%;
     background-image: url("../img/background.jpg");
+    
     background-size: cover;
     background-position: bottom;
     margin: 0;
     padding-top: 75px;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
 }
 
 #title #main_logo {
@@ -145,24 +172,82 @@ tr {
 
 .subsection {
     height: 500px;
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
     margin: 0;
     padding-top: 35px;
-    display: none;
+    padding-left: 10%;
+    padding-right: 10%;
+    
 }
 
 .subsection h1 {
-    font-size: 70px;
+    font-size: 40px;
+    font-family: gotham;
+    letter-spacing: 0px;
 }
 
 .subsection p {
-    padding-left: 20%;
-    padding-right: 20%;
-    text-align: justify;
+    text-align: center;
+    font-family: gotham;
+    color: #5d5d5d;
+    font-size: 24px;
+}
+
+#subscribe {
+    height: 425px;
+}
+
+#what h1 {
+    color: #07b6ff;
+}
+
+#what #underline {
+    height: 10px;
+    width: 110px;
+    background-color: #b4e9ff;
+    margin-top: 7px;
+    margin-bottom: 80px;
+}
+
+.hex {
+    width: 22%;
+    margin-left: 8%;
+    display: inline-block;
+}
+
+.hex img{
+    width: 100%;
 }
 
 #how {
-    background-color: #bbc6e6;
+    background-color: #eeeeee;
+    height: 650px;
+}
+
+#how h1 {
+    color: #5d5d5d;
+}
+
+#how p {
+    text-align: left;
+    width: 60%;
+    float: left;
+    display: inline;
+}
+
+#how #underline {
+    height: 8px;
+    width: 85px;
+    background-color: #bfbfbf;
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+
+#balls {
+    width: 30%;
+    display: inline-block;
+    float: right;
+    vertical-align: top;
 }
 
 
@@ -204,7 +289,76 @@ tr {
     background-image: url("https://lh3.ggpht.com/zLa8_9fnCaAZl8bppGvEOEoCQr4cZKbPwNO6CwGk4Lg6KfCf40b1bwp4raKlEldFiEk=h900");
 }
 
+#footer {
+    background-color: #07b6ff;
+    height: 60px;
+}
 
+#footer img{
+    width: 2%;
+    margin-left: 49%;
+    margin-top: 10px;
+}
+
+#subscribe h1 {
+    color: #07b6ff;
+}
+
+#subscribe #underline {
+    height: 10px;
+    width: 110px;
+    background-color: #b4e9ff;
+    margin-top: 7px;
+    margin-bottom: 40px;
+}
+
+
+#mc-embedded-subscribe {
+    background-color: #aaaaaa;
+    border: none;
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    font-family: gotham;
+    text-align: center;
+    color: white;
+    font-size: 90%;
+    line-height: 100%;
+    outline: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+    -webkit-appearance: none;
+    border-radius: 0px;
+    color: white;
+}
+
+#mce-EMAIL {
+    background-color: #e8e8e8;
+    border: none;
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    font-family: gotham;
+    text-align: left;
+    font-size: 90%;
+    line-height: 100%;
+    letter-spacing: 2px;
+    outline: none;
+    padding-left: 15px;
+    -webkit-appearance: none;
+    border-radius: 0px;
+    color: #aaaaaa;
+}
+
+#mc_embed_signup {
+    width: 50%;
+    margin-left: 15%;
+    height: 50px;
+    position: absolute;
+    margin-top: 40px;
+}
 
 
 /* DASHBOARD */
@@ -342,6 +496,7 @@ tr {
 
 
 
+
 /* GAME PAGE */
 
 #game_page {
@@ -395,7 +550,6 @@ tr {
 
 #right_box p {
     color: #757575;
-    padding-top: 5px;
     font-size: 25px;
 }
 
@@ -423,28 +577,37 @@ tr {
     right: 5%;
 }
 
+#right_box #players {
+    height: 300px;
+    overflow: scroll;
+}
+
 #game_page .rankingCont {
     right: 10%;
 }
 
 #scoreform input {
-    margin-right: 50px;
+    margin-left: 30px;
+}
+
+#scoreform #names {
+    margin-bottom: 50px;
+    font-size: 25px;
 }
 
 #scoreform #submit {
     background-color: #12b8fe;
     border: none;
-    width: 10%;
-    height: 30px;
+    width: 15%;
+    height: 40px;
     color: white;
-    font-size: 15px;
-    position: absolute;
-    top: 810px;
+    font-size: 20px;
+    position: relative;
+    bottom: 20px;
     left: 70%;
 }
 
 #scorebox {
-    height: 200px;
     display: none;
 }
 

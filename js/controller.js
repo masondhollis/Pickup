@@ -5,6 +5,7 @@ Parse.initialize("IG0JX8VC6EzA4iBHYO7Lwx50yFUzyRHlX0xBRGyO", "qOP039WAxBznV5RhnL
 ***********************************************************/
 
 
+
 //Parses queryString. Like a GET request
 function getQueryVariable(variable)
 {
@@ -37,6 +38,10 @@ $('#logo').click(function(){
 
 $('#showUsername').html(Parse.User.current().get('username'));
 
+$('body').on('vclick', '#showUsername', function() {
+    window.location.href = "./user.html";
+});
+
 var $viewportMeta = $('meta[name="viewport"]');
 $('input, select, textarea').bind('focus blur', function(event) {
 $viewportMeta.attr('content', 'width=device-width,initial-scale=1,maximum-scale=' +        (event.type == 'blur' ? 10 : 1));
@@ -45,4 +50,8 @@ $viewportMeta.attr('content', 'width=device-width,initial-scale=1,maximum-scale=
 $(document).bind("mobileinit", function() {
   $.mobile.ignoreContentEnabled = true;
 });
+
+// SPORT LIST. Make sure to add ranking column to Parse when sport is added
+var sportslist = ["Baseball", "Basketball", "BeerPong", "Boxing", "Football", "Soccer", "Ultimate", "Volleyball"];
+
 

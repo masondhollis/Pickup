@@ -46,14 +46,7 @@ currentGame.find({
 
         var numPlayers = game.get('player_id').length;
         
-        //expand box to fit all players
-        /* FIXED WITH SCROLL I HOPE
-        if (numPlayers > 4) {
-            var height = $('#game_box').height();
-            var linesToAdd = numPlayers - 4;
-            var newHeight = height + linesToAdd * 55;
-            $('#game_box').css("height", newHeight+"px");
-        }*/
+
         var roster;
         if (game.get('player_id')) for (var i = 0; i < numPlayers; i++) {
               player.equalTo("objectId", game.get('player_id')[i]);
@@ -61,18 +54,20 @@ currentGame.find({
                      success: function(players) {
                             var $playerElm = $('#playerstemplate').clone(true);
                             var usern = players[0].get('username').replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                            $playerElm.html(usern+" ("+Math.round(players[0].get('ranking'))+"pts)");
+                            $playerElm.html(usern+" ("+Math.round(players[0].get(sport))+"pts)");
                             $playerElm.attr("id", players[0].id);
-                            $playerElm.attr("rank",  players[0].get('ranking'));
+                            $playerElm.attr("rank",  players[0].get(sport));
+                            $playerElm.attr("name", players[0].get('username'));
+                            
                             var added = false;
                             
                             $('#players p').each(function(index) {
                                 if (added == false) {
                                     if (index>0) {
-                                        if(players[0].get('ranking') > $(this).attr('rank')){
+                                        if(players[0].get(sport) > $(this).attr('rank')){
                                             $(this).before($playerElm);
                                             
-                                            $('option[value="'+$(this).text()+'"]').before('<option value="'+usern+'">'+usern+'</option>');
+                                            $('input[value="'+$(this).attr('name')+'"]').before('<input type="checkbox" value="'+usern+'">'+usern);
                                             
                                             added = true;
                                         }
@@ -81,8 +76,8 @@ currentGame.find({
                             })
                             
                             if (added == false) {
-                                $('#players').append($playerElm)
-                                $('#winner, #loser').append('<option value="'+usern+'">'+usern+'</option>')
+                                $('#players').append($playerElm);
+                                $('#scoreform #names').append('<input type="checkbox" value="'+usern+'">'+usern);
                             }
                      },
                      error: function(e) {
@@ -117,7 +112,7 @@ currentGame.find({
 
 //Get User Rank
 Parse.User.current().fetch().then(function(user) {
-    $('#rank').html(Math.round(user.get('ranking')));
+    $('#rank').html(sport+" Rank: "+Math.round(user.get(sport)));
 });
 
 $(document).on('click', '#joingame, #tournamentjoingame', function() {
@@ -164,17 +159,17 @@ $(document).on('click', '#leavegame, #tournamentleavegame', function() {
 })
 
 $('#reportscore').click(function() {
-    if (game.get('player_id').length == 2) {
+    //if (game.get('player_id').length == 2) {
         $('#scorebox').show();
         $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-    }
-    else {
+    //}
+    /*else {
         game.destroy({
             success: function() {
                 window.location.href = "./dashboard.html";
             }
         })
-    }
+    }*/
 });
 
 //REMOVE
@@ -186,16 +181,28 @@ $('#tournamentreportscore').click(function() {
 $('#scoreform').submit(function(event) {
     event.preventDefault();
     
+    var winners = $("#names input:checkbox:checked").map(function(){
+        return $(this).val();
+    }).get();
+    
+    var losers = $("#names input:checkbox:not(:checked)").map(function(){
+        return $(this).val();
+    }).get();
+    
     var setRankingParams = {
-        winnerName: $('#winner').val(),
-        loserName: $('#loser').val()
+        winnerNames: winners,
+        loserNames: losers,
+        sport: game.get('sport')
     };
     
     //Calls a function in the Parse Cloud (mitigates javascript injection attacks)
     //Text me if you need to change this. You need to have Parse command line tools installed
     Parse.Cloud.run('updateRankings', setRankingParams, {
         success: function(response) {
-            if (gameID != 'q0I1G2mrSd') {
+            
+            console.log(response);
+            
+            if (gameID != "LGh0hcssxG" && gameID !="LQuySIsTZO") {
                 currentGame.get(gameID, {
                     success: function(tempGame) {
                         tempGame.destroy({});
@@ -204,8 +211,11 @@ $('#scoreform').submit(function(event) {
                 });
             }
             else location.reload();
+        },
+        error: function(a) {
+            console.log(a);
         }
-    });  
+    }); 
 })
 
 $('#logout').click(function() {

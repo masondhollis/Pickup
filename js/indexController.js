@@ -3,10 +3,34 @@
 ***********************************************************/
 //$("#joinerror").hide();
 
+
+
+var currentUser = Parse.User.current();
+                if (currentUser) {
+                    // do stuff with the user
+                    // Replace this with redirect to dashboard
+                    //window.location.href="./dashboard.html"
+                    Parse.User.logOut();
+                } 
+
 var joinShown = false;
 var signInShown = false;
 
-Parse.User.logOut();
+
+
+$('#learn, #arrow').click(function(){
+     $('html, body').animate({
+            scrollTop: $("#what").offset().top
+        }, 500);
+        return false;
+})
+
+$('#updated').click(function(){
+     $('html, body').animate({
+            scrollTop: $("#subscribe").offset().top
+        }, 500);
+        return false;
+})
 
 //Show registerbox when "register" button clicked
 $('#register').click(function(){
@@ -43,13 +67,21 @@ $('#loginform').submit(function(event){
     
 });
 
+
+
 //Create new user
 $('#joinform').submit(function(event){
     
     event.preventDefault();
     
+    setUpUser();
     
-    //Transfer Reg_user to user
+
+});
+
+function setUpUser() {
+     
+     //Transfer Reg_user to user
     $("#username").val($("#Reg_username").val());
     $("#password").val($("#Reg_password").val());
     
@@ -58,24 +90,42 @@ $('#joinform').submit(function(event){
     user.set("username", $('#Reg_username').val());
     user.set("email", $('#Reg_email').val());
     user.set("password", $('#Reg_password').val());
-    user.set("ranking", 1000);
     
+
+    
+     
     
     
     //Call parse sign up function
     user.signUp(null, {
         success: function(user) {
-            login();
+            console.log("SIGN UP SUCCESS");
+            
+            var params = {
+               sports: sportslist,
+               userID: user.id
+            };
+            
+            Parse.Cloud.run('initUser', params, {
+               success: function(response) {
+                    console.log(response);
+                    //login();
+               },
+               error: function(reponse, error) {
+                    console.log(error);
+               }
+            });
+            
+            
         },
         error: function(user,error) {
             //Naa - Put the error.message string on the screen somewhere. Not in an alert box.
             //alert(error.message + "");
             $("#joinerror").html(error.message);   
         }
-    });
-    
-    
-});
+    })
+}
+
 
 function login() {
     //Sets var username equal to value in username field (from HTML page)
@@ -83,12 +133,16 @@ function login() {
     //Sets var password
     var password = $('#password').val();
     
+    
+    
     //Tries to login with username and password set above
     Parse.User.logIn(username, password, {
         
         //Executes if username/password are valid
+        
+        //HAD TO DO IT LIKE THIS FOR LOCAL BUT SHOULD LINK TO PICKUPBETA.COM/DASHBOARD LATER TO BE LESS PAGE SPECIFIC
         success: function(user) {
-            window.location.href="./dashboard.html";
+            window.location.href="../dashboard.html";
         },
         
         //Executes if username/password not valid
@@ -99,3 +153,5 @@ function login() {
         }
     })
 };
+
+

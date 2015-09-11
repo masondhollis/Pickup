@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>Pickup</title>
+        <link rel="stylesheet" media="screen and (min-width: 800px) and (min-device-width: 800px)" href="../css/style.css" />
+        <link rel="stylesheet" media="screen and (max-device-width: 800px)" href="../css/mobile.css" />
+        <link rel="stylesheet" media="screen and (max-width: 800px)" href="../css/mobile.css" />
+        <script src="https://parse.com/downloads/javascript/parse-1.5.0.js"></script>
+        <script src="../js/jquery-2.1.4.js"></script>
+        <link rel="icon" href="../favicon.ico" type="image/x-icon" /> 
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+        
+    </head>
+    <body>
+        <div id="header">
+            
+            <form id="loginform">
+                <input id="username" type="text" placeholder="username">
+                <span id="loginerror"></span>
+                <input id="password" type="password" placeholder="password">
+                <button type="submit"></button>
+            </form>
+            <form id="joinform">
+                <input id="Reg_email" type="email" placeholder="email">
+                <span id="joinerror"></span>
+                <input id="Reg_username" type="text" placeholder="username">
+                <input id="Reg_password" type="password" placeholder="password">
+                <button type="submit"></button>
+            </form>
+                <button id="login" type="submit">Sign In</button>
+                <button id="register" type="button">Join</button> 
+                
+            <!--h3 id="learn">Learn More</h3>
+            <h3 id="updated">Stay Updated</h3-->
+            
+        </div>
+        
+        <div id="title">
+            <img src="../img/pickup-logo.png" alt="pickup-logo.png" id="main_logo">
+        </div>
+        <div id="what" class="subsection">
+            <h1>As simple as it should be.</h1>
+            <div id="underline"></div>
+            <!--p>Pickup allows you to see how you stack up to the people around you by tracking the games you're already playing and helping you organize more games when you're not.</p-->
+            
+            <div class="hex">
+                <img src="../img/hex-one.jpg">
+                <p>Play Games</p>
+            </div>
+            <div class="hex">
+                <img src="../img/hex-two.jpg">
+                <p>Report Scores</p>
+            </div>
+            <div class="hex">
+                <img src="../img/hex-three.jpg">
+                <p>Rank Up</p>
+            </div>
+            
+            
+        </div>
+        <div id="how" class="subsection">
+            <h1>Our Motivation.</h1>
+            <div id="underline"></div>
+            <img src="../img/balls.png" id="balls">
+
+            <p>Every day thousands of pick up sports games are played across the world. Everywhere you look there are communities built around these pickup games. But even within the same city there are distinct groups that are often unaware of one another.</p>
+            <p>Our dream at Pickup is to connect all these players in one place so they can see where they stack up, globally or in their area, and maybe find some new teammates while doing it.</p>
+        </div>
+        
+        
+        
+        <!-- Register Modal. Hidden on page load -->
+        <!-- Naa - Make this look better please >
+        <div id="overlay">
+            <div id="register_modal" class="modal">
+                <form id="registerform">
+                    <h3>REGISTER FOR PICKUP</h3>
+                    <p>Enter Username</p>
+                    <p><input id="Reg_username" type="text" placeholder= username></p>
+                    <p>Enter Email Address</p>
+                    <p><input id="Reg_email" type="email" placeholder=email></p>
+                    <p>Enter Password</p>
+                    <p><input id="Reg_password" type="password" placeholder=password></p>
+                    <p><input id="submit" type="submit"></p>
+                </form>
+            </div>
+        </div-->
+        
+        <div id="subscribe" class="subsection">
+            <h1>Keep up with us.</h1>
+            <div id="underline"></div>
+
+            <p>If you're as excited as we are about this, drop us your email below and we'll make sure you know when we launch.</p>
+            
+            <!-- Begin MailChimp Signup Form -->
+            <div id="mc_embed_signup">
+            <form action="//pickupbeta.us11.list-manage.com/subscribe/post?u=9c29bf33f53c172de8c505e33&amp;id=f5602027b7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+                    <div class="mc-field-group">
+                        <input type="email" value="" placeholder="Your Email Address" name="EMAIL" class="required email" id="mce-EMAIL">
+                    </div>
+                    <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_9c29bf33f53c172de8c505e33_f5602027b7" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="GO" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+            </div>
+            
+            <!--End mc_embed_signup-->
+        </div>
+        
+        
+        
+        <div id="footer">
+            <img src="../img/pickup-stamp.png">
+        </div>
+        
+        
+        <script src="../js/controller.js"></script>
+        <script src="../js/indexController.js"></script>
+    </body>
+</html>
