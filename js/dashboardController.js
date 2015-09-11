@@ -2,6 +2,7 @@
 *                         DASHBOARD                        *
 ***********************************************************/
 
+console.log("NEW");
 
 
 //Populate all games from database
@@ -20,21 +21,7 @@ allGames.find({
         for (var i = 0; i < gamesList.length; i++) {
             game = gamesList[i];
             
-            
-            //Why doesnt this work? HALP
-            /*get Creator name
-            var usernameParam = {
-                userID: game.get('owner').id
-            };
-            Parse.Cloud.run('getUsername', usernameParam, {
-                success: function(response) {
-                    console.log("SUCCESS: " + response);
-                },
-                error: function(response) {
-                    console.log("ERROR: " + response);
-                }
-            });*/
-            
+
             var $gameElm;
             var sport = game.get('sport').replace(/</g, "&lt;").replace(/>/g, "&gt;");
             var location = game.get('location').replace(/</g, "&lt;").replace(/>/g, "&gt;");

@@ -3,7 +3,7 @@
 ***********************************************************/
 //$("#joinerror").hide();
 
-
+console.log("NEW");
 
 var currentUser = Parse.User.current();
                 if (currentUser) {
@@ -109,7 +109,7 @@ function setUpUser() {
             Parse.Cloud.run('initUser', params, {
                success: function(response) {
                     console.log(response);
-                    //login();
+                    login();
                },
                error: function(reponse, error) {
                     console.log(error);

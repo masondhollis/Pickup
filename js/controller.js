@@ -36,7 +36,6 @@ $('#logo').click(function(){
        window.location.href = "./index.html";
 })
 
-$('#showUsername').html(Parse.User.current().get('username'));
 
 $('body').on('vclick', '#showUsername', function() {
     window.location.href = "./user.html";
@@ -53,5 +52,13 @@ $(document).bind("mobileinit", function() {
 
 // SPORT LIST. Make sure to add ranking column to Parse when sport is added
 var sportslist = ["Baseball", "Basketball", "BeerPong", "Boxing", "Football", "Soccer", "Ultimate", "Volleyball"];
+
+try {
+       $('#showUsername').html(Parse.User.current().get('username'));
+}
+catch(err) {
+       console.log(err)
+}
+
 
 
