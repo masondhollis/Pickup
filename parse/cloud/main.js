@@ -6,6 +6,7 @@ Parse.Cloud.define("updateRankings", function(request, response) {
     Parse.Cloud.useMasterKey();
     var winnerList = request.params.winnerNames;
     var loserList = request.params.loserNames;
+    var sport = request.params.sport;
      
  
      
@@ -26,7 +27,7 @@ Parse.Cloud.define("updateRankings", function(request, response) {
     winnerQuery.find ({
       success: function(winners) {
         for (var i = 0; i < winners.length; i++) {
-          winnerRankSum += winners[i].get('ranking');
+          winnerRankSum += winners[i].get(sport);
         }
         winnerAvgRank = winnerRankSum / winners.length;
          
@@ -48,7 +49,7 @@ Parse.Cloud.define("updateRankings", function(request, response) {
         loserQuery.find ({
           success: function(losers) {
             for (var i = 0; i < losers.length; i++) {
-              loserRankSum += losers[i].get('ranking');
+              loserRankSum += losers[i].get(sport);
             }
             loserAvgRank = loserRankSum / losers.length;
              
@@ -57,17 +58,17 @@ Parse.Cloud.define("updateRankings", function(request, response) {
              
             for (i in winners) {
               //Already getting this above. Look here if we need to speed this up later.. Gotta get it out now though so...
-              var newRank = winners[i].get('ranking') + 32*(1-winnerExpScore);
-              winners[i].set('ranking', newRank);
+              var newRank = winners[i].get(sport) + 32*(1-winnerExpScore);
+              winners[i].set(sport, newRank);
               winners[i].save(null, null);
             }
             for (j in losers) {
-              var newRank = losers[j].get('ranking') + 32*(0-loserExpScore);
-              losers[j].set('ranking', newRank);
+              var newRank = losers[j].get(sport) + 32*(0-loserExpScore);
+              losers[j].set(sport, newRank);
               losers[j].save(null, null);
             }
              
-            response.success(losers);
+            response.success("UPDATED RANKINGS");
              
           },
           error: function(error) {
