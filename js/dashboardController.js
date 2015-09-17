@@ -125,6 +125,7 @@ $('body').on('vclick', 'tr', function() {
 });
 
 $('#logout').click(function() {
+    Parse.User.logOut();
     window.location.href = "./index.html";
 })
 

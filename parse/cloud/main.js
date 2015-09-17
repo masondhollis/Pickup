@@ -13,9 +13,6 @@ Parse.Cloud.define("updateRankings", function(request, response) {
     var User = Parse.Object.extend("User");
      
      
-    //This seems kind of inefficient but doing it all in one call means I have to make more calls to determine winner/loser
-    //Also they run simultaneously so not as big of a problem?
-    //Make this better somehow??
      
     //Get avg winner ranks
     var winnerRankSum = 0;
@@ -26,48 +23,48 @@ Parse.Cloud.define("updateRankings", function(request, response) {
      
     winnerQuery.find ({
       success: function(winners) {
+        var winnerRankArr = [];
         for (var i = 0; i < winners.length; i++) {
-          winnerRankSum += winners[i].get(sport);
+          winnerRankArr[i] = winners[i].get(sport);
+          winnerRankSum += winnerRankArr[i];
         }
         winnerAvgRank = winnerRankSum / winners.length;
          
-        //Get avg loser ranks
          
+        //Get avg loser ranks
         var loserRankSum = 0;
         var loserAvgRank;
-        var loserQueryArray = [];
-         
-        for (var i = 0; i < loserList.length; i++) {
-          loserQueryArray[i] = new Parse.Query("User");
-          loserQueryArray[i].equalTo("username", loserList[i]);
-        }
-         
-         
+        
         var loserQuery = new Parse.Query("User");
         loserQuery.containedIn("username", loserList);
          
         loserQuery.find ({
           success: function(losers) {
+            var loserRankArr = [];
             for (var i = 0; i < losers.length; i++) {
-              loserRankSum += losers[i].get(sport);
+              loserRankArr[i] = losers[i].get(sport);
+              loserRankSum += loserRankArr[i];
             }
             loserAvgRank = loserRankSum / losers.length;
              
+             
+             //Calculate chance of winning for each
             var winnerExpScore = 1 / (1+Math.pow(10, (loserAvgRank - winnerAvgRank)/400));
             var loserExpScore = 1-winnerExpScore;
              
+             //Update rankings
             for (i in winners) {
-              //Already getting this above. Look here if we need to speed this up later.. Gotta get it out now though so...
-              var newRank = winners[i].get(sport) + 32*(1-winnerExpScore);
+              var newRank = winnerRankArr[i] + 32*(1-winnerExpScore);
               winners[i].set(sport, newRank);
               winners[i].save(null, null);
             }
             for (j in losers) {
-              var newRank = losers[j].get(sport) + 32*(0-loserExpScore);
+              var newRank = loserRankArr[i] + 32*(0-loserExpScore);
               losers[j].set(sport, newRank);
               losers[j].save(null, null);
             }
              
+             //Return success message to client
             response.success("UPDATED RANKINGS");
              
           },
@@ -82,42 +79,6 @@ Parse.Cloud.define("updateRankings", function(request, response) {
     });
      
      
- 
-     
-     
-    // 1v1 SUPPORT ONLY //
-    /*//Get winner
-    var User = Parse.Object.extend("User");
-    var winnerQ = new Parse.Query(User);
-    winnerQ.equalTo("username", request.params.winnerName);
-    winnerQ.find({
-        success: function(winner) {
-            //Get loser
-            var loserQ = new Parse.Query(User);
-            loserQ.equalTo("username", request.params.loserName);
-            loserQ.find({
-                success: function(loser) { 
-                    //Calculate new rankings
-                    var winnerRank = winner[0].get('ranking');
-                    var loserRank = loser[0].get('ranking');
-                    var winnerExpScore = 1 / (1+Math.pow(10, (loserRank-winnerRank)/400));
-                    var loserExpScore = 1-winnerExpScore;
-                    //32 based on chess elo. Experiment with this
-                    var winnerNewRank = winnerRank + 32*(1-winnerExpScore);
-                    var loserNewRank = loserRank + 32*(0-loserExpScore);
-                      
-                    winner[0].set("ranking", winnerNewRank);
-                    loser[0].set("ranking", loserNewRank);
-                    winner[0].save(null, null);
-                    loser[0].save(null, null);
-                    response.success("yay success");
-                }
-            })
-        },
-        error: function(a, e) {
-          response.error("Error: " + e);
-        }
-    })*/
 });
  
 Parse.Cloud.define("getUsername", function(request, response) {   
@@ -138,18 +99,20 @@ Parse.Cloud.define("getUsername", function(request, response) {
 
 Parse.Cloud.define("initUser", function(request, response) {
   Parse.Cloud.useMasterKey();
+  
+  //Get list of sports and user from params
   var sportslist = request.params.sports;
   var user = request.user;
       
-    console.log(user);
-    
+    //Init all rankings to 1000
     for (var i in sportslist) {
         console.log(sportslist[i]);
         user.set(sportslist[i], 1000);
     }
-    
+    user.set('ranking', 1000);
     user.save(null, {
       success: function(user) {
+        //Return success to client
         response.success("RANKINGS UPDATED.");
       },
       error: function(user, error) {

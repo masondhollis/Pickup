@@ -109,7 +109,7 @@ tr {
     border-style: none;
     font-family: gotham-light;
     font-size: 45px;
-    line-height: 20px;
+    line-height: 40px;
     text-align: center;
     top: 400px;
 }
@@ -132,7 +132,7 @@ tr {
 
 #header #Reg_email {
     top: 500px;
-    left: 40%;
+    left: 35%;
 }
 
 #header button {
@@ -145,10 +145,14 @@ tr {
     color: white;
 }
 #header #register {
-    left: 15%;
+    position: absolute;
+    left: 27%;
+    top: 300px;
 }
 #header #login {
-    right: 15%;
+    position: absolute;
+    right: 22%;
+    top: 300px;
 }
 
 #title {
@@ -459,7 +463,7 @@ tr {
 
 }
 
-#create_game input {
+#create_game input, #create_game select {
     float: right;
     height: 40px;
     font-size: 25px;

@@ -3,14 +3,14 @@
 ***********************************************************/
 //$("#joinerror").hide();
 
-console.log("NEW");
 
 var currentUser = Parse.User.current();
                 if (currentUser) {
                     // do stuff with the user
                     // Replace this with redirect to dashboard
-                    //window.location.href="./dashboard.html"
-                    Parse.User.logOut();
+                    console.log("Current User");
+                    window.location.href="http://pickupbeta.com/dashboard.html"
+                    //Parse.User.logOut();
                 } 
 
 var joinShown = false;
