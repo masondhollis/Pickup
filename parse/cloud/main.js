@@ -77,9 +77,8 @@ Parse.Cloud.define("updateRankings", function(request, response) {
         response.error(error);
       }
     });
-     
-     
 });
+
  
 Parse.Cloud.define("getUsername", function(request, response) {   
   Parse.Cloud.useMasterKey();

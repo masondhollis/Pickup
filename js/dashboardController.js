@@ -2,8 +2,6 @@
 *                         DASHBOARD                        *
 ***********************************************************/
 
-console.log("NEW");
-
 
 //Populate all games from database
 var newGame = new Game();
@@ -79,12 +77,12 @@ for (var i in sportslist) {
 }
 
 
-
-
 //Show User Rank
+/*
 Parse.User.current().fetch().then(function(user) {
     $('#rank').html(Math.round(user.get('ranking')));
 })
+*/
 
 
 //Show form to create new game
